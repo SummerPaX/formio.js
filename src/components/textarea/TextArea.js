@@ -559,7 +559,10 @@ export default class TextAreaComponent extends TextFieldComponent {
     // Destroy all editors.
     this.editors.forEach(editor => {
       if (editor.destroy) {
-        editor.destroy();
+        try {
+          editor.destroy();
+        } catch (e) {
+        }
       }
     });
     this.editors = [];
